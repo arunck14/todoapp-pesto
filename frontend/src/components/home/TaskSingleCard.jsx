@@ -10,11 +10,11 @@ import TaskModal from "./TaskModal";
 const TaskSingleCard = ({ task }) => {
   const [showModal, setShowModal] = useState(false);
   let statusColorClass = "";
-  if (task.status === "PENDING") {
+  if (task.status === "To Do") {
     statusColorClass = "bg-red-300";
-  } else if (task.status === "WIP") {
+  } else if (task.status === "In Progress") {
     statusColorClass = "bg-blue-300";
-  } else if (task.status === "CLOSED") {
+  } else if (task.status === "Done") {
     statusColorClass = "bg-green-300";
   }
   return (

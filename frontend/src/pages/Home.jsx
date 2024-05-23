@@ -55,7 +55,7 @@ const Home = () => {
           <h1 className="text-3xl my-8">TODO's</h1>
         </div>
         <Link to="/tasks/create">
-          <MdOutlineAddBox className="text-gold-1000 text-4xl" />
+          <MdOutlineAddBox className="text-gold-2000 text-5xl" />
         </Link>
       </div>
       {loading ? (

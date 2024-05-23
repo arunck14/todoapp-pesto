@@ -94,9 +94,9 @@ const EditTask = () => {
             className="border-2 border-gray-500 px-4 py-2 w-full"
           >
             <option value="">--Select--</option>
-            <option value="PENDING">PENDING</option>
-            <option value="WIP">WIP</option>
-            <option value="CLOSED">CLOSED</option>
+            <option value="To Do">To Do</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
           </select>
         </div>
         <button className="p-2 bg-sky-300 m-8" onClick={handleEditTask}>

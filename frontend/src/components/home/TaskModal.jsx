@@ -6,13 +6,13 @@ const TaskModal = ({ task, onClose }) => {
   // Define a variable to hold the color class based on task status
   let statusColorClass = "";
   switch (task.status) {
-    case "PENDING":
+    case "To Do":
       statusColorClass = "bg-red-300";
       break;
-    case "WIP":
+    case "In Progress":
       statusColorClass = "bg-blue-300";
       break;
-    case "CLOSED":
+    case "Done":
       statusColorClass = "bg-green-300";
       break;
     default:
