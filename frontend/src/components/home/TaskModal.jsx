@@ -12,7 +12,7 @@ const TaskModal = ({ task, onClose }) => {
     case "WIP":
       statusColorClass = "bg-blue-300";
       break;
-    case "COMPLETED":
+    case "CLOSED":
       statusColorClass = "bg-green-300";
       break;
     default:

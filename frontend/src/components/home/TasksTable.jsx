@@ -8,20 +8,26 @@ const TasksTable = ({ tasks }) => {
     <table className="w-full border-separate border-spacing-2">
       <thead>
         <tr>
-          <th className="border border-slate-600 rounded-md">No</th>
-          <th className="border border-slate-600 rounded-md">Title</th>
-          <th className="border border-slate-600 rounded-md max-md:hidden">
+          <th className="border border-slate-600 rounded-md bg-yellow-300">
+            No
+          </th>
+          <th className="border border-slate-600 rounded-md bg-yellow-300">
+            Title
+          </th>
+          <th className="border border-slate-600 rounded-md max-md:hidden bg-yellow-300">
             Comments
           </th>
-          <th className="border border-slate-600 rounded-md max-md:hidden">
+          <th className="border border-slate-600 rounded-md max-md:hidden bg-yellow-300">
             Status
           </th>
-          <th className="border border-slate-600 rounded-md">Operations</th>
+          <th className="border border-slate-600 rounded-md bg-yellow-300">
+            Operations
+          </th>
         </tr>
       </thead>
       <tbody>
         {tasks.map((task, index) => (
-          <tr key={task._id} className="h-8">
+          <tr key={task._id} className="h-8 bg-white">
             <td className="border border-slate-700 rounded-md text-center">
               {index + 1}
             </td>

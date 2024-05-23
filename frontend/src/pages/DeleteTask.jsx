@@ -4,6 +4,7 @@ import Spinner from "../components/Spinner";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import { FaStar } from "react-icons/fa";
 
 const DeleteTask = () => {
   const [loading, setLoading] = useState(false);
@@ -22,18 +23,24 @@ const DeleteTask = () => {
       })
       .catch((error) => {
         setLoading(false);
-        // alert('An error happened. Please Chack console');
-        enqueueSnackbar("Error", { variant: "error" });
+        enqueueSnackbar("An error occurred. Please check the console.", {
+          variant: "error",
+        });
         console.log(error);
       });
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4" style={{ backgroundColor: "#850F8D" }}>
       <BackButton />
-      <h1 className="text-3xl my-4">Delete Task</h1>
+      <div className="flex items-center">
+        <FaStar
+          style={{ color: "gold", marginRight: "0.5rem", fontSize: "1.5rem" }}
+        />
+        <h1 className="text-3xl my-8">DELETE TASK</h1>
+      </div>
       {loading ? <Spinner /> : ""}
-      <div className="flex flex-col items-center border-2 border-sky-400 rounded-xl w-[600px] p-8 mx-auto">
+      <div className="flex flex-col items-center border-2 border-white rounded-xl w-[600px] p-8 mx-auto bg-white">
         <h3 className="text-2xl">Are You Sure You want to delete this task?</h3>
 
         <button

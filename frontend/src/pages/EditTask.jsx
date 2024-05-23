@@ -4,6 +4,7 @@ import Spinner from "../components/Spinner";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import { FaStar } from "react-icons/fa";
 
 const EditTask = () => {
   const [title, setTitle] = useState("");
@@ -26,10 +27,12 @@ const EditTask = () => {
       })
       .catch((error) => {
         setLoading(false);
-        alert("An error happened. Please check console");
+        enqueueSnackbar("An error occurred. Please check the console.", {
+          variant: "error",
+        });
         console.log(error);
       });
-  }, []);
+  }, [id]);
 
   const handleEditTask = () => {
     const data = {
@@ -42,23 +45,29 @@ const EditTask = () => {
       .put(`http://localhost:5555/tasks/${id}`, data)
       .then(() => {
         setLoading(false);
-        enqueueSnackbar("Task Edited successfully", { variant: "success" });
+        enqueueSnackbar("Task edited successfully", { variant: "success" });
         navigate("/");
       })
       .catch((error) => {
         setLoading(false);
-        // alert('An error happened. Please Chack console');
-        enqueueSnackbar("Error", { variant: "error" });
+        enqueueSnackbar("An error occurred. Please check the console.", {
+          variant: "error",
+        });
         console.log(error);
       });
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4" style={{ backgroundColor: "#850F8D" }}>
       <BackButton />
-      <h1 className="text-3xl my-4">Edit Task</h1>
+      <div className="flex items-center">
+        <FaStar
+          style={{ color: "gold", marginRight: "0.5rem", fontSize: "1.5rem" }}
+        />
+        <h1 className="text-3xl my-8">EDIT TASK</h1>
+      </div>
       {loading ? <Spinner /> : ""}
-      <div className="flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto">
+      <div className="flex flex-col border-2 border-white rounded-xl w-[600px] p-4 mx-auto bg-white">
         <div className="my-4">
           <label className="text-xl mr-4 text-gray-500">Title</label>
           <input
@@ -74,27 +83,15 @@ const EditTask = () => {
             type="text"
             value={comments}
             onChange={(e) => setComments(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2  w-full "
+            className="border-2 border-gray-500 px-4 py-2 w-full"
           />
         </div>
-        {/* <div className="my-4">
-          <label className="text-xl mr-4 text-gray-500">Status</label>
-          <input
-            type="text"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2  w-full "
-          />
-        </div> */}
         <div className="my-4">
           <label className="text-xl mr-4 text-gray-500">Status</label>
           <select
             value={status}
-            onChangeCapture={(e) => {
-              console.log("Selected status:", e.target.value);
-              setStatus(e.target.value);
-            }}
-            className="border-2 border-gray-500 px-4 py-2  w-full"
+            onChange={(e) => setStatus(e.target.value)}
+            className="border-2 border-gray-500 px-4 py-2 w-full"
           >
             <option value="">--Select--</option>
             <option value="PENDING">PENDING</option>

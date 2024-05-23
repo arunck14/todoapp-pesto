@@ -4,8 +4,9 @@ import Spinner from "../components/Spinner";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import { FaStar } from "react-icons/fa";
 
-const CreateBooks = () => {
+const CreateTasks = () => {
   const [title, setTitle] = useState("");
   const [comments, setComments] = useState("");
   const [status, setStatus] = useState("");
@@ -32,23 +33,26 @@ const CreateBooks = () => {
       })
       .catch((error) => {
         setLoading(false);
-        // alert('An error happened. Please Chack console');
         enqueueSnackbar("Error", { variant: "error" });
         console.log(error);
       });
   };
-  // Add an additional useEffect to listen for changes in the 'status' state
+
   useEffect(() => {
-    // This will log the updated 'status' whenever it changes
     console.log(status);
   }, [status]);
 
   return (
-    <div className="p-4">
+    <div className="p-4" style={{ backgroundColor: "#850F8D" }}>
       <BackButton />
-      <h1 className="text-3xl my-4">Create Task</h1>
+      <div className="flex items-center">
+        <FaStar
+          style={{ color: "gold", marginRight: "0.5rem", fontSize: "1.5rem" }}
+        />
+        <h1 className="text-3xl my-8">CREATE TASK</h1>
+      </div>
       {loading ? <Spinner /> : ""}
-      <div className="flex flex-col border-2 border-sky-400 rounded-xl w-[600px] p-4 mx-auto">
+      <div className="flex flex-col border-2 border-white rounded-xl w-[600px] p-4 mx-auto bg-white">
         <div className="my-4">
           <label className="text-xl mr-4 text-gray-500">Title</label>
           <input
@@ -67,26 +71,11 @@ const CreateBooks = () => {
             className="border-2 border-gray-500 px-4 py-2  w-full "
           />
         </div>
-        {/* <div className="my-4"> */}
-        {/* <label className="text-xl mr-4 text-gray-500">Status</label>
-          <input
-            type="text"
-            value={status}
-            onChange={(e) => {
-              console.log("Selected status:", e.target.value);
-              setStatus(e.target.value);
-            }}
-            className="border-2 border-gray-500 px-4 py-2  w-full "
-          />
-        </div> */}
         <div className="my-4">
           <label className="text-xl mr-4 text-gray-500">Status</label>
           <select
             value={status}
-            onChangeCapture={(e) => {
-              console.log("Selected status:", e.target.value);
-              setStatus(e.target.value);
-            }}
+            onChange={(e) => setStatus(e.target.value)}
             className="border-2 border-gray-500 px-4 py-2  w-full"
           >
             <option value="">--Select--</option>
@@ -103,4 +92,4 @@ const CreateBooks = () => {
   );
 };
 
-export default CreateBooks;
+export default CreateTasks;
