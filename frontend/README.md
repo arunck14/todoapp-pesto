@@ -1,8 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Step 1: Open VS code ,and change the directory to "backend" , followed by that write a command "npm run dev" in the terminal.
+Step 2: In one more terminal , change the directory to "frondend" , followed by that write a command "npm run dev"
+Step 3 : In the browser open local host by selecting the link from terminal to open the app.
+NOTE : Sometimes mongoDb doesn't whitelist IP until we make it allow manually from the mongoDb Atlas ,Please let me know incase if data is not loading in the screen.
